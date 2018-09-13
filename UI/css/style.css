@@ -1,0 +1,411 @@
+body{
+	font: 14px/1.5 'Varela Round', Helvetica, san-serif;
+	padding: 0;
+	margin: 0;
+	background-color: #f7f7f7;
+	height: 100%;
+}
+
+
+/* Globals */
+.container {
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+	min-height: 100%;
+}
+
+.banner {
+	float: left;
+  background: url(../images/fastfoodbg2.jpeg)no-repeat scroll center center / cover;
+  /*background-size: cover;*/
+  height: 100vh
+  position: relative;
+ 	width: 100%;
+  display: table;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+/* Header */
+.header-bar {
+	background: #e2062c;
+	color: #ffffff;
+	/*padding-top: 10px;*/
+	min-height: 40px;
+	border-bottom: #ffffff 3px solid;
+	width: 100%;
+}
+
+.nav-menu {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+header nav {
+	float: right;
+	/*margin-top: 15px;*/
+	display: inline;
+	/*width: 50%;*/
+}
+
+header li{
+	float: left;
+	display: inline;
+	padding: 0 10px 0 10px;
+}
+
+header a {
+	color: #ffffff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	display: inline;
+}
+
+header .highlight a {
+	color: #0A2463;
+}
+
+header a:hover {
+	/*background-color: red;*/
+	/*color: #FFFD98;*/
+	font-weight: bold;
+}
+
+
+.headline-text{
+	margin-top: 20%;
+	/*margin: 0 auto;*/
+	color: #ffffff;
+	font-size: 40px;
+	text-align: center;
+}
+
+.button_1 {
+	height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #4997D0;
+	border: 0;
+	border-radius: 4px;
+}
+
+.button_2:hover{
+	background: #003366;
+	color: #FFFD98;
+}
+
+.btn{
+	height: 30px;
+	padding-top: 6px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 6px;
+	background: #fc1414;
+	border: 0;
+	border-radius: 4px;
+}
+
+.btn:hover {
+	background-color: #f8f8f8;
+	color:#fc1414;
+}
+
+.btn-2{
+	height: 30px;
+	padding-top: 6px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 6px;
+	background: #f8f8f8;
+	color: #fc1414;
+	border: 0;
+	border-radius: 4px;
+}
+
+.btn-2:hover {
+	background-color: #d1d1d1;
+	color:#fc1414;
+}
+
+.btn-3{
+	height: 50px;
+	padding: 13px 25px;
+	background: #fc1414;
+	color: #fff;
+	font-size: 25px;
+	/*font-weight: bold;*/
+	text-transform: uppercase;
+	border: 0;
+	border-radius: 4px;
+	width: 100%;
+	cursor: pointer;
+	margin: 0px auto;
+}
+
+/*.btn-3:hover {
+	background-color: #f8f8f8;
+	color:#fc1414;
+}*/
+
+
+
+.form-element-2{
+	margin-bottom: 15px;
+	line-height: 1.42857;
+	margin-right: 0.5px;
+	margin-left: 20px;
+}
+
+
+/* text */
+.top-text{
+	text-align: center;
+}
+
+.top-text h1{
+	margin-top: 60px;
+}
+
+.login-text{
+	text-align: center;
+}
+
+
+/* form */
+.signup {
+	width: 50%;
+	text-align: left;
+	margin: 0px auto;
+	margin-top: 20px;
+	padding: 20px;
+	border: 1px solid #eeeeee;
+	border-radius: none;
+	background: #ffffff;
+}
+
+
+form {
+	display: block;
+}
+
+.form-element{
+	margin-bottom: 15px;
+	line-height: 1.42857;
+	padding: 10px 20px;
+}
+
+.form-element-2{
+	margin-bottom: 15px;
+	line-height: 1.42857;
+}
+
+label {
+	display: block;
+	float: left;
+	margin-right:20px;
+	margin-bottom:3px;
+	font-size: 14px;
+	clear: both;
+	text-transform: capitalize;
+	width: 100%;
+}
+
+form input {
+	border-radius: 3px;
+	border: 1px solid #e1e1e1;
+	padding: 10px;
+	font-size: 15px;
+	background: #fff;
+	margin-bottom: 10px;
+	width: 100%;
+	display: block;
+	float: left;
+}
+
+/* footer */
+footer {
+	padding: 10px;
+	margin-top: 20px;
+	width: 100%;
+	color: #ffffff;
+	background-color: #fc1414; 
+	text-align: center;
+	bottom: 0;
+	left:0;
+	clear: both;
+  position: relative;
+}
+
+
+/* card */
+.card{
+	width: 30%;
+	float: left;
+	background-color: #fff;
+  padding: 0px 0px 10px 0px !important;
+  margin-left: 25px;
+  min-height: 300px !important;
+  margin-bottom: 65px;
+  box-shadow: 6px 6px 10px #888;
+  border-radius: 7px;
+}
+
+.imgbox{
+	background-size: cover;
+  text-align: -webkit-center;
+  height: 215px;
+  overflow: hidden;
+}
+
+.top-text-menu{	
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 25px;
+	margin: 20px;
+}
+
+.top-text-menu p{
+	margin: 0px;
+}
+
+
+.food-item-info {
+	padding-top: 10px;
+	display: block;
+}
+
+.food-item {
+	font-weight: bold;
+	font-size: 16px;
+	display: inline;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 20px;
+}
+
+/*.food-item-info p {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 20px;
+}*/
+
+.food-item-price {
+	display: inline;
+	float: right;
+	margin-right:20px;
+	font-size: 16px;
+}
+
+.food-item-btn {
+	margin-left: 20px;
+	display: block;
+	float: right;
+}
+
+.pre-order-btn {
+	padding: 4px 10px;
+	margin-top: 5px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #e2062c;
+  color: #fff;
+}
+
+/* media Queries */
+.container {
+	width: 80%;
+	margin: auto;
+	overflow: visible;
+	min-height: 100%;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.card{
+		width: 100%;
+		float: left;
+		background-color: #fff;
+	  padding: 0px 0px 10px 0px !important;
+	  margin-left: 5px;
+	  min-height: 300px !important;
+	  margin-bottom: 45px;
+	  box-shadow: 6px 6px 10px #888;
+	  border-radius: 7px;
+	}
+
+	.nav-menu {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	header nav {
+		float: right;
+		/*margin-top: 15px;*/
+		display: inline;
+		/*width: 50%;*/
+	}
+
+	header a {
+		display: inline;
+	}
+
+	header li {
+		float: left;
+		display: inline;
+		padding: 0 2px 0 2px;
+	}
+
+	footer {
+		padding: 10px;
+		margin-top: 30px;
+		width: 100%;
+		color: #ffffff;
+		background-color: #fc1414; 
+		text-align: center;
+		bottom: 0;
+		clear: both;
+  	position: relative;
+	}
+} 
+
+
+@media(min-width: 768px){
+	.signup {
+		width: 27%;
+		text-align: left;
+		margin: 0px auto;
+		margin-top: 20px;
+		padding-left: 10px;
+		border: 1px solid #b4b4b4;
+	}
+}
+
+@media(max-width: 768px){
+	footer {
+		padding: 10px;
+		margin-top: 20px;
+		width: 100%;
+		color: #ffffff;
+		background-color: #fc1414; 
+		text-align: center;
+		bottom: 0;
+		clear: both;
+  	position: relative;
+	}
+
+}
