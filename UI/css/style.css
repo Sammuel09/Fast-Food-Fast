@@ -32,7 +32,7 @@ ul{
 
 /* Header */
 .header-bar {
-	background: #e2062c;
+	background: #c5515a;
 	color: #ffffff;
 	/*padding-top: 10px;*/
 	min-height: 40px;
@@ -106,7 +106,7 @@ header a:hover {
 	padding-left: 6px;
 	padding-right: 6px;
 	padding-bottom: 6px;
-	background: #fc1414;
+	background: #c5515a;
 	border: 0;
 	border-radius: 4px;
 }
@@ -334,7 +334,7 @@ form input {
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 4px;
-  background-color: #e2062c;
+  background-color: #c5515a;
   color: #fff;
 }
 
