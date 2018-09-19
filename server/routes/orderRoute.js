@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import order from './orderController.js';
+import order from '../controllers/orderController.js';
 const router = express.Router();
 
 
