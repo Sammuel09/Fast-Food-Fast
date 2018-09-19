@@ -14,7 +14,7 @@
 	<header class="header-bar">
 		<div class="container">
 			<div class="nav-menu">
-				<a href="index.html">FastFoodFast</a>
+				<a href="../index.html">FastFoodFast</a>
 				<nav>
 					<ul>
 						<li><a class="btn-2" href="menu.html">Menu</a></li>
@@ -30,29 +30,31 @@
 		<div class="container top-text">
 			<h1>Log In</h1>
 		</div>
+
+		<form class="signup container" action="/signup" method="POST">
+			<div class="form-container">
+				<div class="form-element">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" placeholder="Email">
+				</div>
+				
+				<div class="form-element">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" placeholder="Password">
+				</div>
+	
+				<div class="form-element-2">
+					<button type="submit" class="btn-3">Sign In</button>
+				</div>
+			</div>
+		</form>
 	</section>
 
-	<form class="signup container" action="/signup" method="POST">
-		<div class="form-container">
-			<div class="form-element">
-				<label for="email">Email</label>
-				<input type="email" name="email" id="email" placeholder="Email">
-			</div>
-			
-			<div class="form-element">
-				<label for="password">Password</label>
-				<input type="password" name="password" id="password" placeholder="Password">
-			</div>
-
-			<div class="form-element-2">
-				<button type="submit" class="btn-3">Sign In</button>
-			</div>
-		</div>
-	</form>
+	
 
 	<section>
 		<div class="container login-text">
-			<p>New User ? <a href="signIn.html">Create New Account</a></p>
+			<p>New User ? <a href="signUp.html">Create New Account</a></p>
 		</div>
 	</section>
 
