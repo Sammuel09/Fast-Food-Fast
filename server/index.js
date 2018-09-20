@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import Joi from 'joi';
-import orderRoute from './orderRoute'
+import orderRoute from './routes/orderRoute'
 
 const app = express();
 

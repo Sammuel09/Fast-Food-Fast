@@ -1,5 +1,5 @@
 body{
-	font: 14px/1.5 'Varela Round', Helvetica, san-serif;
+	font: 20px/1.5, 'Varela Round', Helvetica, sans-serif;
 	padding: 0;
 	margin: 0;
 	background-color: #f7f7f7;
@@ -32,7 +32,7 @@ ul{
 
 /* Header */
 .header-bar {
-	background: #e2062c;
+	background: #c5515a;
 	color: #ffffff;
 	/*padding-top: 10px;*/
 	min-height: 40px;
@@ -90,12 +90,15 @@ header a:hover {
 	height: 25px;
 	padding-left: 10px;
 	padding-right: 10px;
-	background: #4997D0;
-	border: 0;
+	background:#c5515a;
+	border: 1px solid #fff;
+	color: #fff;
+	font-size: 14px;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
-.button_2:hover{
+.button_1:hover{
 	background: #003366;
 	color: #FFFD98;
 }
@@ -106,14 +109,14 @@ header a:hover {
 	padding-left: 6px;
 	padding-right: 6px;
 	padding-bottom: 6px;
-	background: #fc1414;
+	background: #c5515a;
 	border: 0;
 	border-radius: 4px;
 }
 
 .btn:hover {
 	background-color: #f8f8f8;
-	color:#fc1414;
+	color:#c5515a;
 }
 
 .btn-2{
@@ -123,20 +126,20 @@ header a:hover {
 	padding-right: 6px;
 	padding-bottom: 6px;
 	background: #f8f8f8;
-	color: #fc1414;
+	color: #c5515a;
 	border: 0;
 	border-radius: 4px;
 }
 
 .btn-2:hover {
 	background-color: #d1d1d1;
-	color:#fc1414;
+	color:#c5515a;
 }
 
 .btn-3{
 	height: 50px;
 	padding: 13px 25px;
-	background: #fc1414;
+	background: #c5515a;
 	color: #fff;
 	font-size: 25px;
 	/*font-weight: bold;*/
@@ -150,7 +153,7 @@ header a:hover {
 
 /*.btn-3:hover {
 	background-color: #f8f8f8;
-	color:#fc1414;
+	color:#c5515a;
 }*/
 
 .btn-4{
@@ -170,17 +173,15 @@ header a:hover {
 	padding-left: 4px;
 	padding-right: 4px;
 	padding-bottom: 4px;
-	background: #fc1414;
+	background: #c5515a;
 	border: 0;
 	border-radius: 4px;
 }
 
 .btn:hover {
 	background-color: #f8f8f8;
-	color:#fc1414;
+	color:#c5515a;
 }
-
-
 
 .form-element-2{
 	margin-bottom: 15px;
@@ -188,7 +189,6 @@ header a:hover {
 	margin-right: 0.5px;
 	margin-left: 20px;
 }
-
 
 /* text */
 .top-text{
@@ -475,7 +475,7 @@ footer {
 	margin-top: 20px;
 	width: 100%;
 	color: #ffffff;
-	background-color: #fc1414; 
+	background-color: #c5515a; 
 	text-align: center;
 	bottom: 0;
 	left:0;
@@ -534,7 +534,7 @@ footer {
 		margin-top: 30px;
 		width: 100%;
 		color: #ffffff;
-		background-color: #fc1414; 
+		background-color: #c5515a; 
 		text-align: center;
 		bottom: 0;
 		clear: both;
@@ -560,7 +560,7 @@ footer {
 		margin-top: 20px;
 		width: 100%;
 		color: #ffffff;
-		background-color: #fc1414; 
+		background-color: #c5515a; 
 		text-align: center;
 		bottom: 0;
 		clear: both;
