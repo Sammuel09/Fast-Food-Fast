@@ -8,11 +8,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1', orderRoute);
 
-app.get('/', (req, res) => {
-  res.send('Fast Food App');
+app.get('/api/v1', (req, res) => {
+  res.status(200).json({ message: 'Welcome to Fast Food App' });
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server started on PORT ${port}..`);
 });
