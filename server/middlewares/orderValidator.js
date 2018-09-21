@@ -36,7 +36,7 @@ class orderValidator {
     if (address === new RegExp('/[^a-z]/')) {
       return res.status(400).json({ error: 'Invalid Request', message: 'Address must be a string' });
     }
-    if (!(typeof completed === "boolean")) {
+    if (!(typeof completed === 'boolean')) {
       return res.status(400).json({ error: 'Invalid Request', message: 'Completed must be a boolean' });
     }
     return next();
