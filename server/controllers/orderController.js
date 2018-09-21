@@ -13,7 +13,7 @@ const create = (req, res) => {
   };
 
   orders.push(order);
-  res.status(201).json({ message: 'order created successfully', order });
+  res.status(201).json({ message: 'Order created successfully', order });
 };
 
 
@@ -22,43 +22,30 @@ const viewAll = (req, res) => {
 };
 
 
-const view = (req, res) => {
-  const order = orders.find(e => e.id === parseInt(req.params.orderId));
-  if (!order) {
-    res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found'});
-    return;
-  }
+const viewOne = (req, res) => {
+  const { order } = req.body;
   res.status(200).json({ message: 'Request was succesful', order });
 };
 
-const update = (req, res) => {
-  const order = orders.find(e => e.id === parseInt(req.params.orderId));
 
-  if (!order) {
-    res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found' });
-    return;
-  }
+const update = (req, res) => {
+  const { order } = req.body;
   order.completed = req.body.completed;
   res.status(200).json({ message: 'Request was succesful', order });
 };
 
 
 const remove = (req, res) => {
-  const order = orders.find(e => e.id === parseInt(req.params.orderId));
-
-  if (!order) {
-    res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found'});
-    return;
-  }
+  const { order } = req.body;
   const index = orders.indexOf(order);
   orders.splice(index, 1);
 
-  res.status(200).json({ message: 'Resource was successfully deleted' });
+  res.status(200).json({ message: 'Order was successfully deleted' });
 };
 
 module.exports = {
   viewAll,
-  view,
+  viewOne,
   create,
   update,
   remove,
