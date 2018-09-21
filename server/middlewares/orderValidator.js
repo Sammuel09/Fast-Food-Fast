@@ -7,13 +7,13 @@ class orderValidator {
     } = req.body;
 
     if (typeof fooditem !== 'string') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Fooditem must be a string' });
+      return res.status(400).json({ error: 'Invalid Request..not a string', message: 'Fooditem must be a string' });
     }
     if (fooditem.length < 1 || fooditem === null) {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Fooditem must be a string' });
+      return res.status(400).json({ error: 'Invalid Request...empty string or null', message: 'Fooditem must be a string' });
     }
     if (fooditem === new RegExp('\\s')) {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Fooditem must be a string' });
+      return res.status(400).json({ error: 'Invalid Request...white space', message: 'Fooditem must be a string' });
     }
     if (typeof price !== 'number') {
       return res.status(400).json({ error: 'Invalid Request', message: 'Price must be a integer' });

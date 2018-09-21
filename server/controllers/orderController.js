@@ -23,18 +23,19 @@ const viewAll = (req, res) => {
 
 
 const view = (req, res) => {
-  const order = orders.find(e => e.id === parseInt(req.params.orderId));
-  if (!order) {
-    res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found'});
+  const order = orders.find(e => e.id === parseInt(req.params.id));
+
+  if (!(order)) {
+    res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found' });
     return;
   }
   res.status(200).json({ message: 'Request was succesful', order });
 };
 
 const update = (req, res) => {
-  const order = orders.find(e => e.id === parseInt(req.params.orderId));
+  const order = orders.find(e => e.id === parseInt(req.params.id));
 
-  if (!order) {
+  if (!(order)) {
     res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found' });
     return;
   }
@@ -44,10 +45,10 @@ const update = (req, res) => {
 
 
 const remove = (req, res) => {
-  const order = orders.find(e => e.id === parseInt(req.params.orderId));
+  const order = orders.find(e => e.id === parseInt(req.params.id));
 
-  if (!order) {
-    res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found'});
+  if (!(order)) {
+    res.status(404).json({ error: 'Resource not found', message: 'The Order with the given ID was not found' });
     return;
   }
   const index = orders.indexOf(order);

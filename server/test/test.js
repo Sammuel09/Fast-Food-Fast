@@ -4,7 +4,8 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../index';
 
-const expect = require("chai").expect;
+const expect = require('chai').expect;
+
 chai.use(chaiHttp);
 
 
@@ -47,10 +48,10 @@ describe('/POST/api/v1/orders', () => {
 });
 
 
-describe('/GET/api/v1/orders/:orderId', () => {
+describe('/GET/api/v1/orders/:id', () => {
   it('should return a single order', (done) => {
     chai.request(app)
-      .get('/api/v1/orders/3')
+      .get('/api/v1/orders/2')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('object');
@@ -65,7 +66,7 @@ describe('/GET/api/v1/orders/:orderId', () => {
 });
 
 
-describe('/PUT/api/v1/orders/:orderId', () => {
+describe('/PUT/api/v1/orders/:id', () => {
   it('should update a single order', (done) => {
     const order = {
       fooditem: 'Jollof-Rice',
@@ -75,7 +76,7 @@ describe('/PUT/api/v1/orders/:orderId', () => {
       completed: true,
     };
     chai.request(app)
-      .put('/api/v1/orders')
+      .put('/api/v1/orders/1')
       .send(order)
       .end((err, res) => {
         expect(res).to.have.status(200);
@@ -90,14 +91,19 @@ describe('/PUT/api/v1/orders/:orderId', () => {
   });
 });
 
-describe('/DELETE/api/v1/orders/:orderId', () => {
-  it('should delete a single order', (done) => {
+describe('/DELETE/api/v1/orders/:id', () => {
+  it('should delete a single order' q, (done) => {
     chai.request(app)
-      .del('/api/v1/orders/3')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.body).to.be.an('object');
-        done();
-      });
+      .get('/api/v1/orders')
+      .end((err)=>{
+      chai.request(app)
+        .del('/api/v1/orders/2')
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an('object');
+          done();
+        });
   });
 });
+)}
