@@ -39,12 +39,13 @@
   "dependencies": {
     "babel-istanbul": "^0.12.2",
     "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
     "coveralls": "^3.0.2",
     "express": "^4.16.3",
     "joi": "^13.6.0",
+    "mocha": "^5.2.0",
     "nyc": "^13.0.1",
-    "chai": "^4.1.2",
-    "chai-http": "^4.2.0",
-    "mocha": "^5.2.0"
+    "pg": "^7.4.3"
   }
 }
