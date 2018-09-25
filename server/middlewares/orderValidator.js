@@ -34,6 +34,7 @@ class orderValidator {
     if (address.length < 1 || address === null) {
       return res.status(400).json({ error: 'Invalid Request', message: 'Address must be a string' });
     }
+
     if (address.trim().length < 1) {
       return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Address must be a string' });
     }
