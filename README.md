@@ -30,7 +30,15 @@ Run the test with the NPM command: npm test
 This app is hosted on Github Pages. The Front End views are published at https://sammuel09.github.io/Fast-Food-Fast/index.html
 
 ## BackEnd API
-The Backend APIs are hosted on heroku.
+The Backend APIs are hosted on heroku. https://sammie-fast-food-fast.herokuapp.com/
+
+## The API Endpoints
+
+|__Request__ |__Endpoint__ | __Request Body__  | __Action__  | __Returned Data__ |
+|--------|---------|---------|------|-------|
+| POST   |api/v1/auth/signup| {username: string, email: string, phone: string, address: string, password:string} | Create a new User |{token:string,status: string, data: object,message: string}|
+|        |         |         |                 |
+                                               
 
 ## Features
 This application has the following features:
