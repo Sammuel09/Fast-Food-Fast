@@ -15,4 +15,4 @@ router.put('/orders/:id', orderValidator.validateGetOrder, orderValidator.valida
 
 router.delete('/orders/:id', orderValidator.validateGetOrder, order.remove);
 
-module.exports = router;
+export default router;
