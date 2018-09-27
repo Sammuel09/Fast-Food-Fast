@@ -1,7 +1,13 @@
 import { Pool } from 'pg';
 import config from '../../config';
 
-const connectionString = config.DATABASE_URL;
+let connectionString = null;
+
+if (config.NODE_ENV === 'test') {
+  connectionString = config.DATABASE_URL_TEST;
+} else {
+  connectionString = config.DATABASE_URL;
+}
 
 const db = new Pool({
   connectionString,

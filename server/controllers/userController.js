@@ -13,21 +13,11 @@ class userController {
     } = req.body;
 
     const hashedPassword = bcrypt.hashSync(password, 10);
-    db.query(`SELECT username from users WHERE username = '${username}'`)
+    db.query(`SELECT username, email from users WHERE username = '${username}' OR email = '${email}'`)
       .then((data) => {
-        if (data.rowCount > 0) {
+        if (data.rows[0].username || data.rows[0].email) {
           res.status(409).json({
-            message: 'Username already exists. Use a different Username',
-          });
-        }
-      })
-      .catch(err => console.error(err.stack));
-
-    db.query(`SELECT email from users WHERE email = '${email}'`)
-      .then((data) => {
-        if (data.rowCount > 0) {
-          res.status(409).json({
-            message: 'Email already exists. Use a differen email address',
+            message: 'User already exists',
           });
         }
       })
