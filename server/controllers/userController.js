@@ -59,20 +59,20 @@ class userController {
     } = req.body;
     db.query(`SELECT * from users WHERE email = '${email}'`)
       .then((data) => {
-        // console.log(data.rows[0])
-
         const passwordIsValid = bcrypt.compareSync(password, data.rows[0].password);
-        // console.log(passwordIsValid);
-
         if (!passwordIsValid) {
           return res.status(401).json({ Error: 'Incorrect Password' });
         }
 
-	      const token = jwt.sign({ userId: data[0].id }, config.SECRET, {
+        const token = jwt.sign({
+          sub: data.rows[0].user_id,
+          isAdmin: data.rows[0].usertype,
+        }, config.SECRET, {
           expiresIn: 86400,
         });
-        console.log(token);
-        return res.status(200).send({ auth: true, token });
+        return res.status(200).send({
+          token, status: 'success', data: data.rows[0], message: 'Signed In a New User',
+        });
       })
       .catch(err => console.error(err.stack));
   }
