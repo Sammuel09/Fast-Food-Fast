@@ -16,7 +16,6 @@ class userController {
     db.query(`SELECT username, email from users WHERE username = '${username}' OR email = '${email}'`)
       .then((data) => {
         if (data.rows[0].username || data.rows[0].email) {
-          console.log(data.rows[0].username);
           res.status(409).json({
             message: 'User already exists',
           });
@@ -42,30 +41,6 @@ class userController {
           });
       })
       .catch(err => console.error(err.stack));
-  }
-
-  static loginUser(req, res) {
-    const {
-      email, password,
-    } = req.body;
-    db.query(`SELECT * from users WHERE email = '${email}'`)
-      .then((data) => {
-      // console.log(data)
-
-        const passwordIsValid = bcrypt.compareSync(password, data.rows[0].password);
-        // console.log(passwordIsValid);
-
-        if (!passwordIsValid) {
-          return res.status(401)
-            .json({ Error: 'Incorrect Password', Message: 'Use a correct Password' });
-        }
-
-        const token = jwt.sign({ sub: data.rows[0].user_id }, config.SECRET, {
-          expiresIn: 86400,
-        });
-        console.log(token);
-        return res.status(200).send({ auth: true, token });
-      });
   }
 }
 
