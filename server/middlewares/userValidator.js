@@ -29,10 +29,6 @@ class userValidator {
     if ((Number(phone) !== parseInt(phone, 10))) {
       responseMessage('Invalid Request', 'Phone Number has to be a number');
     }
-
-    // if (phone.search(/\D\+/g) !== -1) {
-    //   return responseMessage('Invalid Request', 'Phone Number has to be a number');
-    // }
     
     if (typeof address !== 'string') {
       responseMessage('Invalid Request', 'Address has to be a string');
