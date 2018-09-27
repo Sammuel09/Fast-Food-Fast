@@ -14,15 +14,26 @@ class userValidator {
     if (typeof username !== 'string') {
       responseMessage('Invalid Request', 'Username has to be a string');
     }
+
     if (username.length < 1 || username === null) {
-      responseMessage('Invalid Request. Cannot be an empty string or null', 'Username has to be a string');
+      responseMessage('Invalid Request. Cannot be empty string or null', 'Username has to be a string');
     }
+
+    if (username.trim().length < 1) {
+      responseMessage('Invalid Request. Cannot contain white space', 'Username has to be a string');
+    }
+
     if (typeof email !== 'string') {
-      responseMessage('Invalid Request', 'email has to be a string');
+      responseMessage('Invalid Request', 'Email has to be a string');
     }
-    if (typeof parseInt(phone, 10) !== 'number') {
+    if ((Number(phone) !== parseInt(phone, 10))) {
       responseMessage('Invalid Request', 'Phone Number has to be a number');
     }
+
+    // if (phone.search(/\D\+/g) !== -1) {
+    //   return responseMessage('Invalid Request', 'Phone Number has to be a number');
+    // }
+    
     if (typeof address !== 'string') {
       responseMessage('Invalid Request', 'Address has to be a string');
     }
