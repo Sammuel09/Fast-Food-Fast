@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 class userValidator {
-  static validateUser(req, res, next) {
+  static validateFirstTimeUser(req, res, next) {
     const {
       username, email, phone, address, password,
     } = req.body;
@@ -29,10 +29,6 @@ class userValidator {
     if ((Number(phone) !== parseInt(phone, 10))) {
       responseMessage('Invalid Request', 'Phone Number has to be a number');
     }
-
-    // if (phone.search(/\D\+/g) !== -1) {
-    //   return responseMessage('Invalid Request', 'Phone Number has to be a number');
-    // }
     
     if (typeof address !== 'string') {
       responseMessage('Invalid Request', 'Address has to be a string');
@@ -40,7 +36,24 @@ class userValidator {
     if (address.length < 1 || address === null) {
       responseMessage('Invalid Request', 'Address cannot be empty');
     }
-    if (password.length < 1 || address === null) {
+    if (password.length < 1 || password === null) {
+      responseMessage('Invalid Request', 'Password cannot be empty');
+    }
+    return next();
+  }
+
+  static validateReturningUser(req, res, next) {
+    const {
+      email, password,
+    } = req.body;
+
+    const responseMessage = (error, message) => {
+      return res.status(400).json({ error, message });
+    };
+    if (typeof email !== 'string') {
+      responseMessage('Invalid Request', 'email has to be a string');
+    }
+    if (password.length < 1 || password === null) {
       responseMessage('Invalid Request', 'Password cannot be empty');
     }
     return next();

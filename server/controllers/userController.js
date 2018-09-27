@@ -42,6 +42,30 @@ class userController {
       })
       .catch(err => console.error(err.stack));
   }
+
+  static signinUser(req, res) {
+    const {
+      email, password,
+    } = req.body;
+    db.query(`SELECT * from users WHERE email = '${email}'`)
+      .then((data) => {
+        const passwordIsValid = bcrypt.compareSync(password, data.rows[0].password);
+        if (!passwordIsValid) {
+          return res.status(401).json({ Error: 'Incorrect Password' });
+        }
+
+        const token = jwt.sign({
+          sub: data.rows[0].user_id,
+          isAdmin: data.rows[0].usertype,
+        }, config.SECRET, {
+          expiresIn: 86400,
+        });
+        return res.status(200).send({
+          token, status: 'success', data: data.rows[0], message: 'Signed In a New User',
+        });
+      })
+      .catch(err => console.error(err.stack));
+  }
 }
 
 export default userController;
