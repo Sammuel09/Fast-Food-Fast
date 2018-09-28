@@ -7,7 +7,7 @@ const orders = `CREATE TABLE IF NOT EXISTS orders
   quantity INTEGER NOT NULL,
   deliveryinstruction VARCHAR NOT NULL,
   status VARCHAR DEFAULT ('New'),
-  orderdate TIMESTAMP NOT NULL
+  orderdate NOW();
 )`;
 
 

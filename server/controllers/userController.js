@@ -15,7 +15,6 @@ class userController {
     const hashedPassword = bcrypt.hashSync(password, 10);
     db.query(`SELECT username, email from users WHERE username = '${username}' OR email = '${email}'`)
       .then((data) => {
-        console.log(data.rows[0]);
         if (data.rows[0].username || data.rows[0].email) {
           res.status(409).json({
             message: 'Email already exists. Enter another email',

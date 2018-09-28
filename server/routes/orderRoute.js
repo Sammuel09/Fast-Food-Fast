@@ -1,18 +1,9 @@
 import express from 'express';
 import orderValidator from '../middlewares/orderValidator';
-import order from '../controllers/orderController';
+import orderController from '../controllers/orderController';
+import auth from '../middlewares/auth';
 
 const router = express.Router();
-
-
-router.get('/orders', order.viewAll);
-
-router.get('/orders/:id', orderValidator.validateGetOrder, order.viewOne);
-
-router.post('/orders', orderValidator.validatePostOrder, order.create);
-
-router.put('/orders/:id', orderValidator.validateGetOrder, orderValidator.validatePostOrder, order.update);
-
-router.delete('/orders/:id', orderValidator.validateGetOrder, order.remove);
+router.post('/orders', orderValidator.validatePostOrder, auth.verifyAuth, orderController.createOrder);
 
 export default router;
