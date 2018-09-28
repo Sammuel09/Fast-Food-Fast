@@ -4,9 +4,9 @@ language: node_js
 node_js:
   - "6"
 services:
--postgresql
+  - postgresql
 addons:
--postgresql: '9.6.2'
+  postgresql: '9.6.2'
 env: 
   global:
     - CODECLIMATE_REPO_TOKEN=5950f62fd17e56e0eb5729192e5ed3d4c260cce0f1376e0f1d233b41ede7c9a6
