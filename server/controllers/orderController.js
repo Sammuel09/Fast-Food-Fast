@@ -37,7 +37,30 @@ class orderController {
           .json({
             status: 'success',
             data: data.rows,
-            message: 'Retrieved all orders',
+            message: `Retrieved all ${data.rowCount} orders`,
+          });
+      })
+      .catch(err => console.error(err.stack));
+  }
+
+  static getOrderHistory(req, res) {
+    if (parseInt(req.params.id, 10) !== req.user.sub) {
+      return res.status(403)
+        .json({ message: 'You are not authorised to access this page' });
+    }
+    const queryText = `SELECT 
+    name, price, quantity, deliveryinstruction, orderstatus, orderdate 
+    FROM menu 
+    INNER JOIN orders ON orders.menu_id = menu.menu_id
+    WHERE user_id = '${req.user.sub}'`;
+
+    db.query(queryText)
+      .then((data) => {
+        return res.status(200)
+          .json({
+            status: 'success',
+            data: data.rows,
+            message: `Retrieved ${data.rowCount} orders`,
           });
       })
       .catch(err => console.error(err.stack));
@@ -45,7 +68,7 @@ class orderController {
 
   static getOneOrder(req, res) {
     const queryText = `SELECT 
-    username, phonenumber, email, address, name, price, order_id, quantity, deliveryinstruction, orderdate 
+    username, phonenumber, email, address, name, price, order_id, quantity, deliveryinstruction, orderstatus, orderdate 
     FROM users 
     INNER JOIN orders ON orders.user_id = users.user_id
     INNER JOIN menu ON orders.menu_id = menu.menu_id

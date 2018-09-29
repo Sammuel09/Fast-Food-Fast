@@ -12,4 +12,6 @@ router.get('/orders/:id', auth.verifyAdmin, orderController.getOneOrder);
 
 router.put('/orders/:id', orderValidator.validateUpdateOrder, auth.verifyAdmin, orderController.updateOneOrder);
 
+router.get('/orders/user_id/:id', auth.verifyAuth, orderController.getOrderHistory);
+
 export default router;
