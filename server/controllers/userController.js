@@ -15,7 +15,12 @@ class userController {
     const hashedPassword = bcrypt.hashSync(password, 10);
     db.query(`SELECT username, email from users WHERE username = '${username}' OR email = '${email}'`)
       .then((data) => {
-        if (data.rows[0].username || data.rows[0].email) {
+        if (username === data.rows[0].username) {
+          res.status(409).json({
+            message: 'Username already exists. Enter another username',
+          });
+        }
+        if (email === data.rows[0].email) {
           res.status(409).json({
             message: 'Email already exists. Enter another email',
           });
@@ -62,13 +67,13 @@ class userController {
         });
         
         const {
-          username, email, phonenumber, address
+          user_id, username, email, phonenumber, address,
         } = data.rows[0];
         return res.status(200).send({
           token,
           status: 'success',
           data: {
-            username, email, phonenumber, address
+            user_id, username, email, phonenumber, address,
           },
           message: 'Signed In a New User',
         });

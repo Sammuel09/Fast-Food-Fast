@@ -29,7 +29,8 @@ class orderController {
     username, phonenumber, email, address, name, price, order_id, quantity, deliveryinstruction, orderstatus, orderdate 
     FROM users 
     INNER JOIN orders ON orders.user_id = users.user_id
-    INNER JOIN menu ON orders.menu_id = menu.menu_id`;
+    INNER JOIN menu ON orders.menu_id = menu.menu_id
+    ORDER BY username`;
 
     db.query(queryText)
       .then((data) => {
@@ -52,7 +53,8 @@ class orderController {
     name, price, quantity, deliveryinstruction, orderstatus, orderdate 
     FROM menu 
     INNER JOIN orders ON orders.menu_id = menu.menu_id
-    WHERE user_id = '${req.user.sub}'`;
+    WHERE user_id = '${req.user.sub}'
+    ORDER BY orderdate`;
 
     db.query(queryText)
       .then((data) => {

@@ -7,36 +7,46 @@ class userValidator {
       username, email, phone, address, password,
     } = req.body;
 
-    const responseMessage = (error, message) => {
-      return res.status(400).json({ error, message });
-    };
+    const responseMessage = (error, message) => res.status(400).json({ error, message });
 
     if (typeof username !== 'string') {
-      responseMessage('Invalid Request', 'Username has to be a string');
+      return responseMessage('Invalid Request', 'Username has to be a string');
     }
 
     if (username.length < 1 || username === null) {
-      responseMessage('Invalid Request. Cannot be empty string or null', 'Username has to be a string');
+      return responseMessage('Invalid Request. Cannot be empty string or null', 'Username has to be a string');
     }
 
-    if (username.trim().length < 1) {
-      responseMessage('Invalid Request. Cannot contain white space', 'Username has to be a string');
+    if (username.trim().length === 0) {
+      return responseMessage('Invalid Request. Cannot contain white space', 'Username has to be a string');
     }
 
     if (typeof email !== 'string') {
-      responseMessage('Invalid Request', 'Email has to be a string');
+      return responseMessage('Invalid Request', 'Email has to be a string');
     }
     if ((Number(phone) !== parseInt(phone, 10))) {
-      responseMessage('Invalid Request', 'Phone Number has to be a number');
+      return responseMessage('Invalid Request', 'Phone Number has to be a number');
     }
     if (typeof address !== 'string') {
-      responseMessage('Invalid Request', 'Address has to be a string');
+      return responseMessage('Invalid Request', 'Address has to be a string');
     }
     if (address.length < 1 || address === null) {
-      responseMessage('Invalid Request', 'Address cannot be empty');
+      return responseMessage('Invalid Request', 'Address cannot be empty');
     }
+    if (address.trim().length === 0) {
+      return responseMessage('Invalid Request. Cannot contain white space', 'Address has to be a string');
+    }
+
+    if (typeof password !== 'string') {
+      return responseMessage('Invalid Request', 'Password has to be a string');
+    }
+
     if (password.length < 1 || password === null) {
-      responseMessage('Invalid Request', 'Password cannot be empty');
+      return responseMessage('Invalid Request', 'Password cannot be empty');
+    }
+
+    if (password.trim().length === 0) {
+      return responseMessage('Invalid Request. Cannot contain white space', 'Password has to be a string');
     }
     return next();
   }
@@ -46,14 +56,21 @@ class userValidator {
       email, password,
     } = req.body;
 
-    const responseMessage = (error, message) => {
-      return res.status(400).json({ error, message });
-    };
+    const responseMessage = (error, message) => res.status(400).json({ error, message });
     if (typeof email !== 'string') {
-      responseMessage('Invalid Request', 'email has to be a string');
+      return responseMessage('Invalid Request', 'email has to be a string');
     }
+
+    if (typeof password !== 'string') {
+      return responseMessage('Invalid Request', 'Password has to be a string');
+    }
+
     if (password.length < 1 || password === null) {
-      responseMessage('Invalid Request', 'Password cannot be empty');
+      return responseMessage('Invalid Request', 'Password cannot be empty');
+    }
+    
+    if (password.trim().length === 0) {
+      return responseMessage('Invalid Request. Cannot contain white space', 'Password has to be a string');
     }
     return next();
   }

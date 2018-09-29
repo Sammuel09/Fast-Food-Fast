@@ -33,19 +33,9 @@ class orderValidator {
     if (instruction.length < 1 || instruction === null) {
       return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Delivery Instructions must be a string' });
     }
-    if (instruction.trim().length < 1) {
+    if (instruction.trim().length === 0) {
       return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Deleivery Instructions must be a string' });
     }
-    return next();
-  }
-
-  static validateGetOrder(req, res, next) {
-    const order = orders.find(orderItem => orderItem.id === parseInt(req.params.id, 10));
-
-    if (!(order)) {
-      return res.status(404).json({ error: 'Order not found', message: 'The Order with the given ID was not found' });
-    }
-    req.body.order = order;
     return next();
   }
 
@@ -57,11 +47,11 @@ class orderValidator {
     if (orderStatus.length < 1 || orderStatus === null) {
       return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Order Status must be a string' });
     }
-    if (orderStatus.trim().length < 1) {
+    if (orderStatus.trim().length === 0) {
       return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Order Status must be a string' });
     }
     if (orderStatus !== 'New' && orderStatus !== 'Processing' && orderStatus !== 'Cancelled' && orderStatus !== 'Complete') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Order Status must be either New, Processing, Cancelled or Complete' });
+      return res.status(400).json({ error: 'Invalid Request', message: 'Order Status must either be New, Processing, Cancelled or Complete' });
     }
     return next();
   }
