@@ -3,46 +3,38 @@ import orders from '../models/model';
 class orderValidator {
   static validatePostOrder(req, res, next) {
     const {
-      fooditem, price, quantity, address, completed,
+      userId, menuId, quantity, instruction,
     } = req.body;
 
-    if (typeof fooditem !== 'string') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Fooditem must be a string' });
+    if (typeof userId !== 'number') {
+      return res.status(400).json({ error: 'Invalid Request', message: 'UserID must be an integer' });
     }
-    if (fooditem.length < 1 || fooditem === null) {
-      return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Fooditem must be a string' });
-    }
-    if (fooditem.trim().length < 1) {
-      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Fooditem must be a string' });
+    if (isNaN(userId) || (userId < 0) || (!Number.isInteger(userId))) {
+      return res.status(400).json({ error: 'Invalid Request', message: 'UserID must be an integer' });
     }
 
-    if (typeof price !== 'number') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Price must be an integer' });
+    if (typeof menuId !== 'number') {
+      return res.status(400).json({ error: 'Invalid Request', message: 'MenuID must be an integer' });
     }
-    if (isNaN(price) || (price < 0) || (!Number.isInteger(price))) {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Price must be an integer' });
+    if (isNaN(menuId) || (menuId < 0) || (!Number.isInteger(menuId))) {
+      return res.status(400).json({ error: 'Invalid Request', message: 'MenuID must be an integer' });
     }
+
     if (typeof quantity !== 'number') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Quantity must be an integer' });
+      return res.status(400).json({ error: 'Invalid Request', message: 'Price must be an integer' });
     }
     if (isNaN(quantity) || (quantity < 0) || (!Number.isInteger(quantity))) {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Quantity must be an integer' });
+      return res.status(400).json({ error: 'Invalid Request', message: 'Price must be an integer' });
     }
-    if (typeof address !== 'string') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Address must be a string' });
+    
+    if (typeof instruction !== 'string') {
+      return res.status(400).json({ error: 'Invalid Request', message: 'Delivery Instructions must be a string' });
     }
-    if (address.length < 1 || address === null) {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Address must be a string' });
+    if (instruction.length < 1 || instruction === null) {
+      return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Delivery Instructions must be a string' });
     }
-
-    if (address.trim().length < 1) {
-      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Address must be a string' });
-    }
-    if (!(typeof completed === 'boolean')) {
-      return res.status(400).json({
-        error: 'Invalid Request',
-        message: 'Completed must be a boolean',
-      });
+    if (instruction.trim().length < 1) {
+      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Deleivery Instructions must be a string' });
     }
     return next();
   }
