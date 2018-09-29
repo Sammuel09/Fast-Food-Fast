@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text cross-env NODE_ENV=test mocha --require babel-register ./server/test/test.js ./server/test/userController.js --exit",
+    "createTables": "cross-env NODE_ENV=test babel-node -- server/models/createTables.js",
     "start": "nodemon bin/dev",
     "clean": "rm -rf dist",
     "build": "npm run clean && mkdir dist && babel server -s -d dist",
@@ -50,6 +51,7 @@
     "express-jwt": "^5.3.1",
     "joi": "^13.6.0",
     "jsonwebtoken": "^8.3.0",
+    "jwt-decode": "^2.2.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "pg": "^7.4.3"
