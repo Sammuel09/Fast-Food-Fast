@@ -42,8 +42,33 @@ class orderController {
       })
       .catch(err => console.error(err.stack));
   }
+
+  static getOneOrder(req, res) {
+    const queryText = `SELECT 
+    username, phonenumber, email, address, name, price, order_id, quantity, deliveryinstruction, orderdate 
+    FROM users 
+    INNER JOIN orders ON orders.user_id = users.user_id
+    INNER JOIN menu ON orders.menu_id = menu.menu_id
+    WHERE order_id = '${req.params.id}'`;
+
+    db.query(queryText)
+      .then((data) => {
+        if (!data.rows[0]) {
+          return res.status(404)
+            .json({
+              message: 'The requested Order cannnot be found',
+            });
+        }
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data.rows[0],
+            message: 'Retrieved a specific order',
+          });
+      })
+      .catch(err => console.error(err.stack));
+  }
 }
 
 
 export default orderController;
-

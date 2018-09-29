@@ -8,4 +8,7 @@ router.post('/orders', orderValidator.validatePostOrder, auth.verifyAuth, orderC
 
 router.get('/orders', auth.verifyAdmin, orderController.getAllOrders);
 
+
+router.get('/orders/:id', auth.verifyAdmin, orderController.getOneOrder);
+
 export default router;
