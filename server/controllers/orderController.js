@@ -53,10 +53,16 @@ class orderController {
 
     db.query(queryText)
       .then((data) => {
+        if (!data.rows[0]) {
+          return res.status(404)
+            .json({
+              message: 'The requested Order cannnot be found',
+            });
+        }
         res.status(200)
           .json({
             status: 'success',
-            data: data.rows,
+            data: data.rows[0],
             message: 'Retrieved a specific order',
           });
       })
@@ -66,4 +72,3 @@ class orderController {
 
 
 export default orderController;
-
