@@ -51,7 +51,6 @@ class orderValidator {
 
   static validateUpdateOrder(req, res, next) {
     const { orderStatus } = req.body;
-    console.log(orderStatus);
     if (typeof orderStatus !== 'string') {
       return res.status(400).json({ error: 'Invalid Request', message: 'Order Status must be a string' });
     }
@@ -60,6 +59,9 @@ class orderValidator {
     }
     if (orderStatus.trim().length < 1) {
       return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Order Status must be a string' });
+    }
+    if (orderStatus !== 'New' && orderStatus !== 'Processing' && orderStatus !== 'Cancelled' && orderStatus !== 'Complete') {
+      return res.status(400).json({ error: 'Invalid Request', message: 'Order Status must be either New, Processing, Cancelled or Complete' });
     }
     return next();
   }
