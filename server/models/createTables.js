@@ -26,7 +26,7 @@ CREATE TABLE orders ( order_id SERIAL PRIMARY KEY,
   quantity INTEGER NOT NULL,
   deliveryinstruction VARCHAR NOT NULL,
   status VARCHAR DEFAULT ('New'),
-  orderdate TIMESTAMP NOT NULL
+  orderdate NOW();
 )`;
 
 // db.query(createTables)
