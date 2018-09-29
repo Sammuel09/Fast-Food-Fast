@@ -24,6 +24,20 @@ class menuController {
       })
       .catch(err => console.error(err.stack));
   }
+
+  static getAllMenu(req, res) {
+    const text = 'SELECT name, imageurl, price FROM menu';
+    db.query(text)
+      .then((data) => {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data.rows,
+            message: 'Retrieved all menu',
+          });
+      })
+      .catch(err => console.error(err.stack));
+  }
 }
 
 export default menuController;

@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs';
 import config from '../../config';
 
 
-class Auth {
+class auth {
   static verifyAuth(req, res, next) {
     const token = req.headers['x-access-token'];
     jwt.verify(token, config.SECRET, (err, decoded) => {
@@ -34,7 +34,6 @@ class Auth {
             .json({ error: 'You are not authorised to access this page. Only Admin Access' });
         } if (isAdmin === 1) {
           req.user = { sub, isAdmin };
-          console.log(req.user);
         }
       }
       return next();
@@ -42,4 +41,4 @@ class Auth {
   }
 }
 
-export default Auth;
+export default auth;
