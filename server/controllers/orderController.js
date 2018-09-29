@@ -26,7 +26,7 @@ class orderController {
 
   static getAllOrders(req, res) {
     const queryText = `SELECT 
-    username, phonenumber, email, address, name, price, order_id, quantity, deliveryinstruction, orderdate 
+    username, phonenumber, email, address, name, price, order_id, quantity, deliveryinstruction, orderstatus, orderdate 
     FROM users 
     INNER JOIN orders ON orders.user_id = users.user_id
     INNER JOIN menu ON orders.menu_id = menu.menu_id`;
@@ -53,7 +53,7 @@ class orderController {
 
     db.query(queryText)
       .then((data) => {
-        if (!data.rows[0]) {
+        if (!(data.rows[0])) {
           return res.status(404)
             .json({
               message: 'The requested Order cannnot be found',
@@ -64,6 +64,30 @@ class orderController {
             status: 'success',
             data: data.rows[0],
             message: 'Retrieved a specific order',
+          });
+      })
+      .catch(err => console.error(err.stack));
+  }
+
+  static updateOneOrder(req, res) {
+    const { orderStatus } = req.body;
+    const queryText = `UPDATE orders
+    SET orderstatus = '${orderStatus}'
+    WHERE order_id = '${req.params.id}' RETURNING orderstatus`;
+
+    db.query(queryText)
+      .then((data) => {
+        if (!(data.rows[0])) {
+          return res.status(404)
+            .json({
+              message: 'The requested Order cannnot be found',
+            });
+        }
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data.rows[0],
+            message: 'Updated a specific order',
           });
       })
       .catch(err => console.error(err.stack));

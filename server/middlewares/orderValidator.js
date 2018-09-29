@@ -26,7 +26,7 @@ class orderValidator {
     if (isNaN(quantity) || (quantity < 0) || (!Number.isInteger(quantity))) {
       return res.status(400).json({ error: 'Invalid Request', message: 'Price must be an integer' });
     }
-    
+
     if (typeof instruction !== 'string') {
       return res.status(400).json({ error: 'Invalid Request', message: 'Delivery Instructions must be a string' });
     }
@@ -46,6 +46,21 @@ class orderValidator {
       return res.status(404).json({ error: 'Order not found', message: 'The Order with the given ID was not found' });
     }
     req.body.order = order;
+    return next();
+  }
+
+  static validateUpdateOrder(req, res, next) {
+    const { orderStatus } = req.body;
+    console.log(orderStatus);
+    if (typeof orderStatus !== 'string') {
+      return res.status(400).json({ error: 'Invalid Request', message: 'Order Status must be a string' });
+    }
+    if (orderStatus.length < 1 || orderStatus === null) {
+      return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Order Status must be a string' });
+    }
+    if (orderStatus.trim().length < 1) {
+      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Order Status must be a string' });
+    }
     return next();
   }
 }
