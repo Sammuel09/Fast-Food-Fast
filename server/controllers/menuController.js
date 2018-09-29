@@ -26,14 +26,14 @@ class menuController {
   }
 
   static getAllMenu(req, res) {
-    const text = 'SELECT name, imageurl, price FROM menu';
+    const text = 'SELECT menu_id, name, imageurl, price FROM menu';
     db.query(text)
       .then((data) => {
         res.status(200)
           .json({
             status: 'success',
             data: data.rows,
-            message: 'Retrieved all menu',
+            message: `Retrieved all ${data.rowCount} menu`,
           });
       })
       .catch(err => console.error(err.stack));
