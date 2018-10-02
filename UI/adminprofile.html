@@ -29,10 +29,10 @@
 <div class="container-admin">
 	<section class="sidebar ">
 		<nav>
-			<a href="admin.html" class="active"><i class="fa fa-plus" aria-hidden="true"></i>Add Food Items</a>
+			<a href="admin.html"><i class="fa fa-plus" aria-hidden="true"></i>Add Food Items</a>
 			<a href="viewfooditems.html"><i class="fa fa-cutlery" aria-hidden="true"></i>View Food Items</a>
 			<a href="orders.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Orders</a>
-			<a href="adminprofile.html"><i class="fa fa-user" aria-hidden="true"></i>Admin Profile</a>
+			<a href="adminprofile.html" class="active"><i class="fa fa-user" aria-hidden="true"></i>Admin Profile</a>
 		</nav>
 	</section>
 
@@ -44,7 +44,7 @@
 			</div>
 			<nav class="sm-menu">
 				<div class="sm-menu-item">
-					<a href="admin.html" class="active"><i class="fa fa-plus" aria-hidden="true"></i>Add Food Items</a>
+					<a href="admin.html" ><i class="fa fa-plus" aria-hidden="true"></i>Add Food Items</a>
 				</div>
 				<div class="sm-menu-item">
 					<a href="viewfooditems.html"><i class="fa fa-cutlery" aria-hidden="true"></i>View Food Items</a>
@@ -53,40 +53,51 @@
 					<a href="orders.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Orders</a>
 				</div>
 				<div class="sm-menu-item">
-					<a href="adminprofile.html"><i class="fa fa-user" aria-hidden="true"></i>Admin Profile</a>
+					<a href="adminprofile.html" class="active"><i class="fa fa-user" aria-hidden="true"></i>Admin Profile</a>
 				</div>
 			</nav>	
 		</div>
 
 		<div class="order-section">
-			<form class="signup-2 " action="/signup" method="POST">
-				<div class="form-container">
-					<div class="form-element">
-						<label for="name">Name</label>
-						<input type="text" name="name" id="name" placeholder="Name of Food Item">
-					</div>
-		
-					<div class="form-element">
-						<label for="image">Image</label>
-						<input type="file" name="file" id="image">
-					</div>
-					
-					<div class="form-element">
-						<label for="price">Price</label>
-						<input type="price" name="price" id="price" placeholder="Price">
-					</div>
-		
-					<div class="form-element-2">
-						<button type="submit" class="btn-3">Add Food Item</button>
-					</div>
-				</div>
-			</form>
+			<div class="profile-card">
+				<img class="profile-card-item" src="images/user.png" alt="Admin Image" style="width:50%">
+				<h2 class="profile-card-item">John Adebayo</h2>
+				<label>Email Address</label>
+				<p>johnadebayo@gmail.com</p>
+				<label>Phone Number</label>
+				<p>08137840740</p>
+
+				<button class="btn_primary">Edit</button>
+			</div>
 		</div>
 	</div>
 </div>
 
+<div id="modal" class="modal">
+	<div class="modal-content">
+		<form class="signup-2 " action="/signup" method="POST">
+			<span class="close">&times;</span>
+			<div class="form-container">
+				<div class="form-element">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="name" value="johnadebayo@gmail.com">
+				</div>
+	
+				<div class="form-element">
+					<label for="phone-number">Phone Number</label>
+					<input type="tel" name="phone number" id="phone number" value="08137840740">
+				</div>
+	
+				<div class="form-element-2">
+					<button type="submit" class="btn-3">Update Profile</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
 <footer>
-		<p>Fast-Food-Fast: Food delivery at your fingertips. Copyright &copy; 2018</p>
+	<p>Fast-Food-Fast: Food delivery at your fingertips. Copyright &copy; 2018</p>
 </footer>
 
 <script>
@@ -135,6 +146,43 @@
 		} else{
 			menu.style.display = "none";
 		}
+	}
+
+	// modals 
+	const modal = document.getElementById("#modal");
+	const editBtns = document.querySelectorAll(".btn_primary");
+	const deleteBtns = document.querySelectorAll(".btn_danger_2");
+	const span = document.querySelector(".close");
+
+	for(let i = 0; i < deleteBtns.length; i++){
+		deleteBtns[i].addEventListener("click", deleteItem)
+	}
+
+	function deleteItem(){
+		alert("This button deletes this food item");
+	}
+
+	for (let i =  0; i < editBtns.length; i++) {
+		editBtns[i].addEventListener("click", openModal)	
+	}
+	span.addEventListener("click", closeModal)
+
+	function openModal(){
+		const modal = document.querySelector(".modal");
+		console.log(modal);
+		modal.style.display = "block";
+	}
+
+	function closeModal(){
+		const modal = document.querySelector(".modal");
+		modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+		const modal = document.querySelector(".modal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    	}
 	}
 
 </script>
