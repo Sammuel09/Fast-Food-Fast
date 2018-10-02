@@ -58,7 +58,7 @@ class userValidator {
 
     const responseMessage = (error, message) => res.status(400).json({ error, message });
     if (typeof email !== 'string') {
-      return responseMessage('Invalid Request', 'email has to be a string');
+      return responseMessage('Invalid Request', 'Email has to be a string');
     }
 
     if (typeof password !== 'string') {
@@ -68,7 +68,7 @@ class userValidator {
     if (password.length < 1 || password === null) {
       return responseMessage('Invalid Request', 'Password cannot be empty');
     }
-    
+       
     if (password.trim().length === 0) {
       return responseMessage('Invalid Request. Cannot contain white space', 'Password has to be a string');
     }
