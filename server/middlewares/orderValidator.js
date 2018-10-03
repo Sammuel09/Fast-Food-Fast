@@ -21,20 +21,20 @@ class orderValidator {
     }
 
     if (typeof quantity !== 'number') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Price must be an integer' });
+      return res.status(400).json({ error: 'Invalid Request', message: 'Quantity must be an integer' });
     }
     if (isNaN(quantity) || (quantity < 0) || (!Number.isInteger(quantity))) {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Price must be an integer' });
+      return res.status(400).json({ error: 'Invalid Request', message: 'Quantity must be an integer' });
     }
 
     if (typeof instruction !== 'string') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Delivery Instructions must be a string' });
+      return res.status(400).json({ error: 'Invalid Request', message: 'Delivery Instructions has to be a string' });
     }
     if (instruction.length < 1 || instruction === null) {
-      return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Delivery Instructions must be a string' });
+      return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Delivery Instructions has to be a string' });
     }
     if (instruction.trim().length === 0) {
-      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Deleivery Instructions must be a string' });
+      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Deleivery Instructions has to be a string' });
     }
     return next();
   }
@@ -42,13 +42,13 @@ class orderValidator {
   static validateUpdateOrder(req, res, next) {
     const { orderStatus } = req.body;
     if (typeof orderStatus !== 'string') {
-      return res.status(400).json({ error: 'Invalid Request', message: 'Order Status must be a string' });
+      return res.status(400).json({ error: 'Invalid Request', message: 'Order Status has to be a string' });
     }
     if (orderStatus.length < 1 || orderStatus === null) {
-      return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Order Status must be a string' });
+      return res.status(400).json({ error: 'Invalid Request. Cannot be an empty string or null', message: 'Order Status has to be a string' });
     }
     if (orderStatus.trim().length === 0) {
-      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Order Status must be a string' });
+      return res.status(400).json({ error: 'Invalid Request. Cannot contain white space', message: 'Order Status has to be a string' });
     }
     if (orderStatus !== 'New' && orderStatus !== 'Processing' && orderStatus !== 'Cancelled' && orderStatus !== 'Complete') {
       return res.status(400).json({ error: 'Invalid Request', message: 'Order Status must either be New, Processing, Cancelled or Complete' });
