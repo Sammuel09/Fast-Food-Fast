@@ -18,6 +18,7 @@ app.use(cors());
 app.options('*', cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('./UI'));
 app.use('/api/v1', orderRoute);
 app.use('/api/v1', userRoute);
 app.use('/api/v1', menuRoute);
