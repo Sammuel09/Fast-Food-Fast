@@ -244,7 +244,7 @@ describe('/POST/api/v1/auth/signup', () => {
         })
         .end((err, res) => {
           console.log(res.body);
-          expect(res).to.have.status(401);
+          expect(res).to.have.status(409);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('message');
           expect(res.body.message).to.be.a('string');

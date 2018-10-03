@@ -13,7 +13,7 @@ class userValidator {
       return responseMessage('Invalid Request', 'Username has to be a string');
     }
 
-    if (username.length < 1 || username === null) {
+    if (username.length === 0 || username === null) {
       return responseMessage('Invalid Request. Cannot be empty string or null', 'Username has to be a string');
     }
 

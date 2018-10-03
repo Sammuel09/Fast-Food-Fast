@@ -8,7 +8,7 @@ CREATE TABLE users (user_id SERIAL PRIMARY KEY,
   username VARCHAR(30) UNIQUE NOT NULL,
   phonenumber VARCHAR NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL, 
-  address VARCHAR (300) UNIQUE NOT NULL,
+  address VARCHAR (300) NOT NULL,
   password VARCHAR(100) NOT NULL,
   usertype INT DEFAULT 0
 );
@@ -28,8 +28,6 @@ CREATE TABLE orders ( order_id SERIAL PRIMARY KEY,
   orderstatus status DEFAULT 'New',
   orderdate TIMESTAMP DEFAULT (NOW())
 )`;
-
-// CREATE TYPE status AS ENUM ('New', 'Processing', 'Cancelled', 'Complete');
 
 db.query(createTables)
   .then(() => {

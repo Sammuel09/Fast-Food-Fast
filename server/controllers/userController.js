@@ -55,7 +55,7 @@ class userController {
     db.query(`SELECT user_id, username, email, phonenumber, address, password, usertype FROM users WHERE email = '${email}'`)
       .then((data) => {
         if (!(data.rows[0])) {
-          return res.status(401)
+          return res.status(409)
             .json({
               message: 'Email does not exist. Use a valid email',
             });

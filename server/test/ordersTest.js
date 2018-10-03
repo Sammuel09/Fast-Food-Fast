@@ -68,16 +68,15 @@ describe('/POST/api/v1/orders', () => {
           .post('/api/v1/orders')
           .set('x-access-token', token)
           .send(order)
-          .end((err, res) => {
-            console.log(res.body);
-            expect(res).to.have.status(201);
-            expect(res.body).to.be.an('object');
-            expect(res.body).to.have.property('status');
-            expect(res.body.status).to.be.a('string');
-            expect(res.body).to.have.property('data');
-            expect(res.body.data).to.have.be.an('object');
-            expect(res.body).to.have.property('message');
-            expect(res.body.message).to.be.a('string');
+          .end((err, resp) => {
+            expect(resp).to.have.status(201);
+            expect(resp.body).to.be.an('object');
+            expect(resp.body).to.have.property('status');
+            expect(resp.body.status).to.be.a('string');
+            expect(resp.body).to.have.property('data');
+            expect(resp.body.data).to.have.be.an('object');
+            expect(resp.body).to.have.property('message');
+            expect(resp.body.message).to.be.a('string');
             // done(err);
           });
         /**
@@ -86,16 +85,15 @@ describe('/POST/api/v1/orders', () => {
         chai.request(app)
           .get('/api/v1/orders')
           .set('x-access-token', token)
-          .end((err, res) => {
-            console.log(res.body);
-            expect(res).to.have.status(200);
-            expect(res.body).to.be.an('object');
-            expect(res.body).to.have.property('status');
-            expect(res.body.status).to.be.a('string');
-            expect(res.body).to.have.property('data');
-            expect(res.body.data).to.have.be.an('array');
-            expect(res.body).to.have.property('message');
-            expect(res.body.message).to.be.a('string');
+          .end((err, response1) => {
+            expect(response1).to.have.status(200);
+            expect(response1.body).to.be.an('object');
+            expect(response1.body).to.have.property('status');
+            expect(response1.body.status).to.be.a('string');
+            expect(response1.body).to.have.property('data');
+            expect(response1.body.data).to.have.be.an('array');
+            expect(response1.body).to.have.property('message');
+            expect(response1.body.message).to.be.a('string');
             // done(err);
           });
 
@@ -105,12 +103,11 @@ describe('/POST/api/v1/orders', () => {
         chai.request(app)
           .get('/api/v1/orders/10')
           .set('x-access-token', token)
-          .end((err, res) => {
-            console.log(res.body);
-            expect(res).to.have.status(404);
-            expect(res.body).to.be.an('object');
-            expect(res.body).to.have.property('message');
-            expect(res.body.message).to.be.a('string');
+          .end((err, response2) => {
+            expect(response2).to.have.status(404);
+            expect(response2.body).to.be.an('object');
+            expect(response2.body).to.have.property('message');
+            expect(response2.body.message).to.be.a('string');
             // done(err);
           });
 
@@ -120,16 +117,15 @@ describe('/POST/api/v1/orders', () => {
         chai.request(app)
           .get('/api/v1/orders/1')
           .set('x-access-token', token)
-          .end((err, res) => {
-            console.log(res.body);
-            expect(res).to.have.status(200);
-            expect(res.body).to.be.an('object');
-            expect(res.body).to.have.property('status');
-            expect(res.body.status).to.be.a('string');
-            expect(res.body).to.have.property('data');
-            expect(res.body.data).to.have.be.an('object');
-            expect(res.body).to.have.property('message');
-            expect(res.body.message).to.be.a('string');
+          .end((err, response3) => {
+            expect(response3).to.have.status(200);
+            expect(response3.body).to.be.an('object');
+            expect(response3.body).to.have.property('status');
+            expect(response3.body.status).to.be.a('string');
+            expect(response3.body).to.have.property('data');
+            expect(response3.body.data).to.have.be.an('object');
+            expect(response3.body).to.have.property('message');
+            expect(response3.body.message).to.be.a('string');
             // done(err);
           });
         /**
@@ -154,16 +150,16 @@ describe('/POST/api/v1/orders', () => {
           .put('/api/v1/orders/1')
           .set('x-access-token', token)
           .send({ orderStatus: 'Complete' })
-          .end((err, res) => {
+          .end((err, response) => {
             console.log(res.body);
-            expect(res).to.have.status(200);
-            expect(res.body).to.be.an('object');
-            expect(res.body).to.have.property('status');
-            expect(res.body.status).to.be.a('string');
-            expect(res.body).to.have.property('data');
-            expect(res.body.data).to.have.be.an('object');
-            expect(res.body).to.have.property('message');
-            expect(res.body.message).to.be.a('string');
+            expect(response).to.have.status(200);
+            expect(response.body).to.be.an('object');
+            expect(response.body).to.have.property('status');
+            expect(response.body.status).to.be.a('string');
+            expect(response.body).to.have.property('data');
+            expect(response.body.data).to.have.be.an('object');
+            expect(response.body).to.have.property('message');
+            expect(response.body.message).to.be.a('string');
             done(err);
           });
       });
@@ -376,7 +372,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body.data).to.have.be.an('object');
         expect(res.body).to.have.property('message');
         expect(res.body.message).to.be.a('string');
-        done(err);
       });
 
     const token = res.body.token;
@@ -395,7 +390,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('UserID must be an integer');
-        done(err);
       });
     chai.request(app)
       .post('/api/v1/orders')
@@ -412,7 +406,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('UserID must be an integer');
-        done(err);
       });
 
     chai.request(app)
@@ -430,7 +423,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('MenuID must be an integer');
-        done(err);
       });
     chai.request(app)
       .post('/api/v1/orders')
@@ -447,7 +439,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('MenuID must be an integer');
-        done(err);
       });
 
     chai.request(app)
@@ -465,7 +456,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('Quantity must be an integer');
-        done(err);
       });
 
     chai.request(app)
@@ -483,7 +473,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('Quantity must be an integer');
-        done(err);
       });
 
     chai.request(app)
@@ -501,7 +490,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('Delivery Instructions has to be a string');
-        done(err);
       });
 
     chai.request(app)
@@ -519,7 +507,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request. Cannot be an empty string or null');
         expect(res.body.message).to.equal('Delivery Instructions has to be a string');
-        done(err);
       });
 
     chai.request(app)
@@ -563,7 +550,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body.data).to.have.be.an('object');
         expect(res.body).to.have.property('message');
         expect(res.body.message).to.be.a('string');
-        done(err);
       });
 
     const token = res.body.token;
@@ -580,7 +566,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request');
         expect(res.body.message).to.equal('Order Status has to be a string');
-        done(err);
       });
 
     chai.request(app)
@@ -595,7 +580,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request. Cannot be an empty string or null');
         expect(res.body.message).to.equal('Order Status has to be a string');
-        done(err);
       });
 
     chai.request(app)
@@ -610,7 +594,6 @@ describe('/POST/api/v1/orders', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error).to.equal('Invalid Request. Cannot contain white space');
         expect(res.body.message).to.equal('Order Status has to be a string');
-        done(err);
       });
 
     chai.request(app)

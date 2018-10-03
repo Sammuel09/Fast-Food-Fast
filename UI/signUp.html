@@ -29,12 +29,14 @@
 	<section>
 		<div class="container top-text">
 			<h1>Create Account</h1>
+			<div id="error" class="red"></div>
 		</div>
 	</section>
 
 	<form class="signup container" action="/signup" method="POST">
 		<div class="form-container">
 			<div class="form-element">
+
 				<label for="username">Username</label>
 				<input type="text" name="username" id="username" placeholder="Username" required/>
 			</div>
@@ -47,8 +49,7 @@
 			<div class="form-element">
 				<label for="phone">Phone:</label>
 				<input type="tel" id="phone" name="phone"
-						   placeholder="081 4567 7890"
-						   pattern="[0-9]{3} [0-9]{4} [0-9]{4}"
+						   placeholder="08145677890"
 						   required />
 			</div>
 
