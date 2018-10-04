@@ -1,7 +1,7 @@
 const logoutBtn = document.querySelector('#logout');
 
 const logout = () => {
-  localStorage.clear();
+  localStorage.removeItem('token');
 };
 
 logoutBtn.addEventListener('click', () => {
