@@ -62,7 +62,7 @@ class userController {
         }
         const passwordIsValid = bcrypt.compareSync(password, data.rows[0].password);
         if (!passwordIsValid) {
-          return res.status(401).json({ Error: 'Incorrect Password. Enter Correct Password' });
+          return res.status(401).json({ message: 'Incorrect Password. Enter Correct Password' });
         }
 
         const token = jwt.sign({

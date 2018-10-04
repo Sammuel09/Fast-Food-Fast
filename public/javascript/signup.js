@@ -35,18 +35,14 @@ const sendPost = () => {
       localStorage.setItem('token', `${response.token}`);
       localStorage.setItem('userId', `${response.data.user_id}`);
       localStorage.setItem('username', `${response.data.username}`);
-      setTimeout(() => {
-        window.location = './menu.html';
-      }, 2000);
+      window.location = './menu.html';
     })
     .catch((error) => {
       errorMsg.innerHTML = (JSON.parse(error.message)).message;
     });
 };
-// .catch(error => console.log('error is: ', JSON.parse(error.message).message));
 
 signUpBtn.addEventListener('click', (event) => {
   event.preventDefault();
   sendPost();
-  form.reset();
 });
