@@ -4,11 +4,11 @@ import db from './database';
 const hashedPassword = bcrypt.hashSync('samuel', 10);
 
 const createTables = `DROP TABLE IF EXISTS users CASCADE;
-CREATE TABLE users ( user_id SERIAL PRIMARY KEY, 
+CREATE TABLE users (user_id SERIAL PRIMARY KEY, 
   username VARCHAR(30) UNIQUE NOT NULL,
   phonenumber VARCHAR NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL, 
-  address VARCHAR (300) UNIQUE NOT NULL,
+  address VARCHAR (300) NOT NULL,
   password VARCHAR(100) NOT NULL,
   usertype INT DEFAULT 0
 );
@@ -25,15 +25,14 @@ CREATE TABLE orders ( order_id SERIAL PRIMARY KEY,
   menu_id INTEGER REFERENCES menu(menu_id) ON UPDATE CASCADE ON DELETE RESTRICT,
   quantity INTEGER NOT NULL,
   deliveryinstruction VARCHAR NOT NULL,
-  status VARCHAR DEFAULT ('New'),
-  orderdate NOW();
+  orderstatus status DEFAULT 'New',
+  orderdate TIMESTAMP DEFAULT (NOW())
 )`;
 
-// db.query(createTables)
-//   .then(() => {
-//     console.log('Table created successfully');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
+db.query(createTables)
+  .then(() => {
+    console.log('Table created successfully');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
