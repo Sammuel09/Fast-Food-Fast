@@ -15,7 +15,7 @@ const handleResponse = response => response.json()
   });
 
 const sendLoginData = () => {
-  fetch('http://localhost:3000/api/v1/auth/login', {
+  fetch('https://sammie-fast-food-fast.herokuapp.com/api/v1/auth/login', {
     method: 'post',
     headers: {
       'content-type': 'application/json',
@@ -40,5 +40,4 @@ const sendLoginData = () => {
 loginBtn.addEventListener('click', (event) => {
   event.preventDefault();
   sendLoginData();
-  form.reset();
 });
