@@ -24,6 +24,9 @@ class userValidator {
     if (typeof email !== 'string') {
       return responseMessage('Invalid Request', 'Email has to be a string');
     }
+    if (email.match(/\w+@\w+\.\w{2,6}/g) === null) {
+      return responseMessage('Invalid Request', 'Enter email in the correct format');
+    }
     if ((Number(phone) !== parseInt(phone, 10))) {
       return responseMessage('Invalid Request', 'Phone Number has to be a number');
     }
@@ -41,7 +44,7 @@ class userValidator {
       return responseMessage('Invalid Request', 'Password has to be a string');
     }
 
-    if (password.length < 1 || password === null) {
+    if (password.length === 0 || password === null) {
       return responseMessage('Invalid Request', 'Password cannot be empty');
     }
 
@@ -61,11 +64,15 @@ class userValidator {
       return responseMessage('Invalid Request', 'Email has to be a string');
     }
 
+    if (email.match(/\w+@\w+\.\w{2,6}/g) === null) {
+      return responseMessage('Invalid Request', 'Enter email in the correct format');
+    }
+
     if (typeof password !== 'string') {
       return responseMessage('Invalid Request', 'Password has to be a string');
     }
 
-    if (password.length < 1 || password === null) {
+    if (password.length === 0 || password === null) {
       return responseMessage('Invalid Request', 'Password cannot be empty');
     }
        

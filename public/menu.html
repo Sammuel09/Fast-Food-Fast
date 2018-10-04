@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Fast-Food-Fast is a food delivery service app that enables user to have sweet yummy foods delivered to their door steps.">
+	<meta name="keywords" content="service, delivery">
+	<meta name="author" content="Samuel Adeniran">
+	<title>Fast-Food-Fast</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+</head>
+<body>
+	<header class="header-bar">
+		<div class="container">
+			<div class="nav-menu">
+				<a href="../index.html">FastFoodFast</a>
+				<nav>
+					<ul>
+						<li><a class="btn-2" href="admin.html">Admin</a></li>
+						<li><a class="btn-2" href="#">Logout</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<section class="bg">
+		<section class="top-text-menu">
+			<p>Our Menu</p>
+			<img src="https://png.icons8.com/color/60/000000/restaurant-menu.png">
+		</section>
+
+		<section class="container">
+			<div class="card">
+				<div class="imgbox">
+					<img src="./images/jollof-rice.jpeg" alt="jollof-rice">
+				</div>
+				<div class="food-item-info">
+					<p class="food-item">Jollof Rice</p>
+					<span class="food-item-price">&#8358; 1000</span>
+				</div>
+				<div class="food-item-btn">
+					<button class="pre-order-btn">Pre-Order</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="imgbox">
+					<img src="./images/eba-egusi.jpeg" alt="Eba and Egusi">
+				</div>
+				<div class="food-item-info">
+					<p class="food-item">Eba and Egusi</p>
+					<span class="food-item-price">&#8358; 1500</span>
+				</div>
+				<div class="food-item-btn">
+					<button class="pre-order-btn">Pre-Order</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="imgbox">
+					<img src="./images/shawarma.jpeg" alt="Shawarma">
+				</div>
+				<div class="food-item-info">
+					<p class="food-item">Shawarma</p>
+					<span class="food-item-price">&#8358; 1500</span>
+				</div>
+				<div class="food-item-btn">
+					<button class="pre-order-btn">Pre-Order</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="container">
+			<div class="card">
+				<div class="imgbox">
+					<img src="./images/small-chops.jpeg" alt="Small Chops">
+				</div>
+				<div class="food-item-info">
+					<p class="food-item">Small Chops</p>
+					<span class="food-item-price">&#8358; 1000</span>
+				</div>
+				<div class="food-item-btn">
+					<button class="pre-order-btn">Pre-Order</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="imgbox">
+					<img src="./images/doughnut.jpeg" alt="Doughnuts">
+				</div>
+				<div class="food-item-info">
+					<p class="food-item">Doughnuts</p>
+					<span class="food-item-price">&#8358; 1500</span>
+				</div>
+				<div class="food-item-btn">
+					<button class="pre-order-btn">Pre-Order</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="imgbox">
+					<img src="./images/burger.jpeg" alt="Burger">
+				</div>
+				<div class="food-item-info">
+					<p class="food-item">Burger</p>
+					<span class="food-item-price">&#8358; 1000</span>
+				</div>
+				<div class="food-item-btn">
+					<button class="pre-order-btn">Pre-Order</button>
+				</div>
+			</div>
+		</section>
+	</section>
+
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<form class="signup-2 " action="/signup" method="POST">
+				<span class="close">&times;</span>
+				<div class="form-container">
+
+					<div class="form-element">
+						<label for="email">Food Item</label>
+						<input type="email" name="email" id="name" value="Jollof Rice">
+					</div>
+
+					<div class="form-element">
+						<label for="price">Price</label>
+						<input type="number" name="price" id="price" placeholder="1000">
+					</div>
+
+					<div class="form-element">
+						<label for="quantity">Quantity</label>
+						<input type="number" name="quantity" id="quantity" placeholder="1">
+					</div>
+		
+					<div class="form-element">
+						<label for="address">Address</label>
+						<input type="text" name="text" id="address" placeholde="No 12, Adetutu Street, Yaba, Lagos">
+					</div>
+
+					<div class="form-element">
+						<label for="delivery">Delivery Instructions</label>
+						<input type="text" name="text" id="delivery" placeholde="Deliver within 15 minutes">
+					</div>
+		
+					<div class="form-element-2">
+						<button type="submit" class="btn-3">Order</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<footer>
+		<p>Fast-Food-Fast: Food delivery at your fingertips. Copyright &copy; 2018</p>
+	</footer>
+
+	<script>
+		const preorderBtns = document.querySelectorAll(".pre-order-btn");
+		const span = document.querySelector(".close");
+
+		for (let i =  0; i < preorderBtns.length; i++) {
+			preorderBtns[i].addEventListener("click", openModal);
+		}
+		
+		span.addEventListener("click", closeModal)
+
+		function openModal(){
+			const modal = document.querySelector(".modal");
+			modal.style.display = "block";
+		}
+
+		function closeModal(){
+			const modal = document.querySelector(".modal");
+			modal.style.display = "none";
+		}
+
+		window.onclick = function(event) {
+			const modal = document.querySelector(".modal");
+    		if (event.target == modal) {
+        	modal.style.display = "none";
+    		}
+		}
+
+
+
+
+	</script>
+</body>
+</html>

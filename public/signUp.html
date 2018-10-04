@@ -17,7 +17,6 @@
 				<a href="index.html">FastFoodFast</a>
 				<nav>
 					<ul>
-						<li><a class="btn-2" href="menu.html">Menu</a></li>
 						<li><a class="btn-2" href="signIn.html">Sign In</a></li>
 						<li><a class="btn-2" href="signUp.html">Sign Up</a></li>
 					</ul>
@@ -29,36 +28,42 @@
 	<section>
 		<div class="container top-text">
 			<h1>Create Account</h1>
+			<div id="error" class="red"></div>
 		</div>
 	</section>
 
 	<form class="signup container" action="/signup" method="POST">
 		<div class="form-container">
 			<div class="form-element">
+
 				<label for="username">Username</label>
-				<input type="text" name="username" id="username" placeholder="Username">
+				<input type="text" name="username" id="username" placeholder="Username" required/>
 			</div>
 
 			<div class="form-element">
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email" placeholder="Email">
+				<input type="email" name="email" id="email" placeholder="Email" required/>
 			</div>
 
 			<div class="form-element">
 				<label for="phone">Phone:</label>
 				<input type="tel" id="phone" name="phone"
-						   placeholder="081-4567-7890"
-						   pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+						   placeholder="08145677890"
 						   required />
+			</div>
+
+			<div class="form-element">
+				<label for="email">Address</label>
+				<input type="textarea" name="address" id="address" placeholder="Address" required/>
 			</div>
 			
 			<div class="form-element">
 				<label for="password">Password</label>
-				<input type="password" name="password" id="password" placeholder="Password">
+				<input type="password" name="password" id="password" placeholder="Password" required/>
 			</div>
 
 			<div class="form-element-2">
-				<button type="submit" class="btn-3">Sign Up</button>
+				<button type="submit" class="btn-3" id="signupBtn">Sign Up</button>
 			</div>
 		</div>
 	</form>
@@ -72,7 +77,6 @@
 	<footer>
 			<p>Fast-Food-Fast: Food delivery at your fingertips. Copyright &copy; 2018</p>
 	</footer>
-
-
+  <script src='./javascript/signup.js'></script>
 </body>
 </html>
