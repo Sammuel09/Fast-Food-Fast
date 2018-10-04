@@ -14,7 +14,7 @@
 	<header class="header-bar">
 		<div class="container">
 			<div class="nav-menu">
-				<a href="../index.html">FastFoodFast</a>
+				<a href="index.html">FastFoodFast</a>
 				<nav>
 					<ul>
 						<li><a class="btn-2" href="signIn.html">Sign In</a></li>
@@ -28,22 +28,23 @@
 	<section>
 		<div class="container top-text">
 			<h1>Log In</h1>
+			<div id="error" class="red"></div>
 		</div>
 
 		<form class="signup container" action="/signup" method="POST">
 			<div class="form-container">
 				<div class="form-element">
 					<label for="email">Email</label>
-					<input type="email" name="email" id="email" placeholder="Email">
+					<input type="email" name="email" id="email" placeholder="Email" required/>
 				</div>
 				
 				<div class="form-element">
 					<label for="password">Password</label>
-					<input type="password" name="password" id="password" placeholder="Password">
+					<input type="password" name="password" id="password" placeholder="Password" required/>
 				</div>
 	
 				<div class="form-element-2">
-					<button type="submit" class="btn-3">Sign In</button>
+					<button type="submit" class="btn-3" id="loginBtn">Sign In</button>
 				</div>
 			</div>
 		</form>
@@ -60,6 +61,7 @@
 	<footer>
 		<p>Fast-Food-Fast: Food delivery at your fingertips. Copyright &copy; 2018</p>
 	</footer>
+	<script src='./javascript/login.js'></script>
 
 </body>
 </html>

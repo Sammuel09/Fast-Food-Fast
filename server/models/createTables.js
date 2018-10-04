@@ -29,10 +29,10 @@ CREATE TABLE orders ( order_id SERIAL PRIMARY KEY,
   orderdate TIMESTAMP DEFAULT (NOW())
 )`;
 
-db.query(createTables)
-  .then(() => {
-    console.log('Table created successfully');
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// db.query(createTables)
+//   .then(() => {
+//     console.log('Table created successfully');
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
