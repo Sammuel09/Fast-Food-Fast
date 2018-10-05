@@ -17,7 +17,7 @@ const handleResponse = response => response.json()
   });
 
 const sendPost = () => {
-  fetch('http://sammie-fast-food-fast.herokuapp.com/api/v1/auth/signup', {
+  fetch('https://sammie-fast-food-fast.herokuapp.com/api/v1/auth/signup', {
     method: 'post',
     headers: {
       'content-type': 'application/json',
