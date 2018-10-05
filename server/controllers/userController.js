@@ -16,12 +16,12 @@ class userController {
     db.query(`SELECT username, email from users WHERE username = '${username}' OR email = '${email}'`)
       .then((data) => {
         if (username === data.rows[0].username) {
-          res.status(409).json({
+          return res.status(409).json({
             message: 'Username already exists. Enter another username',
           });
         }
         if (email === data.rows[0].email) {
-          res.status(409).json({
+          return res.status(409).json({
             message: 'Email already exists. Enter another email',
           });
         }
