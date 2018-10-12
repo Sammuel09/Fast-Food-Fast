@@ -633,6 +633,10 @@ form input {
 	float:right;
 }
 
+/* front end*/
+.red {
+	color: #8b0c0c;
+}
 
 /* footer */
 footer {

@@ -18,8 +18,8 @@
 				<a href="../index.html">FastFoodFast</a>
 				<nav>
 					<ul>
-						<li><a class="btn-2" href="userprofile.html">Profile</a></li>
-						<li><a class="btn-2" href="#">Logout</a></li>
+						<li><a class="btn-2" href="profile.html">Profile</a></li>
+						<li><a class="btn-2" href="index.html">Logout</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -29,10 +29,8 @@
 <div class="container-admin">
 	<section class="sidebar ">
 		<nav>
-			<a href="admin.html" class="active"><i class="fa fa-plus" aria-hidden="true"></i>Add Food Items</a>
-			<a href="viewfooditems.html"><i class="fa fa-cutlery" aria-hidden="true"></i>View Food Items</a>
-			<a href="orders.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Orders</a>
-			<a href="adminprofile.html"><i class="fa fa-user" aria-hidden="true"></i>Admin Profile</a>
+				<a href="orderhistory.html" class="active"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Order History</a>
+				<a href="userprofile.html"><i class="fa fa-user" aria-hidden="true"></i>User Profile</a>
 		</nav>
 	</section>
 
@@ -40,47 +38,54 @@
 		<div class="main">
 			<div class="top-main">
 				<span><i class="fa fa-bars" aria-hidden="true"></i></span>
-				<a href="#">Hi, Admin</a>
+				<a href="#">Hi, Tosin</a>
 			</div>
 			<nav class="sm-menu">
 				<div class="sm-menu-item">
-					<a href="admin.html" class="active"><i class="fa fa-plus" aria-hidden="true"></i>Add Food Items</a>
+					<a href="orderhistory.html" class="active"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Order History</a>
 				</div>
 				<div class="sm-menu-item">
-					<a href="viewfooditems.html"><i class="fa fa-cutlery" aria-hidden="true"></i>View Food Items</a>
-				</div>
-				<div class="sm-menu-item">
-					<a href="orders.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Orders</a>
-				</div>
-				<div class="sm-menu-item">
-					<a href="adminprofile.html"><i class="fa fa-user" aria-hidden="true"></i>Admin Profile</a>
+					<a href="userprofile.html"><i class="fa fa-user" aria-hidden="true"></i>User Profile</a>
 				</div>
 			</nav>	
 		</div>
 
 		<div class="order-section">
-			<form class="signup-2 " action="/signup" method="POST">
-				<div class="form-container">
-					<div class="form-element">
-						<label for="name">Name</label>
-						<input type="text" name="name" id="name" placeholder="Name of Food Item">
-					</div>
+			<div class="history-order-card">
+				<p>Menu Ordered : <span>Jollof Rice and Chicken</span></p>
+				<p>Price : <span>&#8358; 1500</span></p>
+				<p>Quantity : <span>2<span></p>
+			</div>
 		
-					<div class="form-element">
-						<label for="image">Image</label>
-						<input type="file" name="file" id="image">
-					</div>
-					
-					<div class="form-element">
-						<label for="price">Price</label>
-						<input type="price" name="price" id="price" placeholder="Price">
-					</div>
-		
-					<div class="form-element-2">
-						<button type="submit" class="btn-3">Add Food Item</button>
-					</div>
-				</div>
-			</form>
+			<div class="history-order-card">
+				<p>Menu Ordered : <span>Jollof Rice and Chicken</span></p>
+				<p>Price : <span>&#8358; 1500</span></p>
+				<p>Quantity : <span>2<span></p>
+			</div>
+
+			<div class="history-order-card">
+				<p>Menu Ordered : <span>Jollof Rice and Chicken</span></p>
+				<p>Price : <span>&#8358; 1500</span></p>
+				<p>Quantity : <span>2<span></p>
+			</div>
+
+			<div class="history-order-card">
+				<p>Menu Ordered : <span>Jollof Rice and Chicken</span></p>
+				<p>Price : <span>&#8358; 1500</span></p>
+				<p>Quantity : <span>2<span></p>
+			</div>
+
+			<div class="history-order-card">
+				<p>Menu Ordered : <span>Jollof Rice and Chicken</span></p>
+				<p>Price : <span>&#8358; 1500</span></p>
+				<p>Quantity : <span>2<span></p>
+			</div>
+
+			<div class="history-order-card">
+				<p>Menu Ordered : <span>Jollof Rice and Chicken</span></p>
+				<p>Price : <span>&#8358; 1500</span></p>
+				<p>Quantity : <span>2<span></p>
+			</div>
 		</div>
 	</div>
 </div>
@@ -138,6 +143,7 @@
 	}
 
 </script>
+<script src='./javascript/logout.js'></script>
 
 </body>
 </html>

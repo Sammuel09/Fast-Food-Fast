@@ -1,0 +1,25 @@
+language: node,
+sudo: required
+language: node_js
+node_js:
+  - "6"
+services:
+  - postgresql
+addons:
+  postgresql: '9.6.2'
+env: 
+  global:
+    - CODECLIMATE_REPO_TOKEN=5950f62fd17e56e0eb5729192e5ed3d4c260cce0f1376e0f1d233b41ede7c9a6
+    - NODE_ENV=test
+branches:
+  except:
+  - gh-pages
+  - master
+before_script:
+  - psql -c 'CREATE DATABASE travis;' -U postgres
+script:
+  - npm test
+after_success: 
+  - npm install -g codeclimate-test-reporter
+  - npm run coveralls
+  - codeclimate-test-reporter < ./coverage/lcov.info
