@@ -642,6 +642,15 @@ form input {
 	text-transform: capitalize;
 }
 
+#successMsg{
+	color: #fff;
+	background-color: #51c551;
+	border: 0.5px solid white;
+	border-radius: 4%;
+	padding : 4px;
+	display: none;
+}
+
 /* footer */
 footer {
 	padding: 5px;
