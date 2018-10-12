@@ -638,6 +638,10 @@ form input {
 	color: #8b0c0c;
 }
 
+#adminMsg{
+	text-transform: capitalize;
+}
+
 /* footer */
 footer {
 	padding: 5px;
