@@ -1,7 +1,6 @@
+
 # Badges
 [![Build Status](https://travis-ci.org/Sammuel09/Fast-Food-Fast.svg?branch=develop)](https://travis-ci.org/Sammuel09/Fast-Food-Fast)   [![Coverage Status](https://coveralls.io/repos/github/Sammuel09/Fast-Food-Fast/badge.svg?branch=develop)](https://coveralls.io/github/Sammuel09/Fast-Food-Fast?branch=develop)    [![Maintainability](https://api.codeclimate.com/v1/badges/703a7afa68a3951c6ea5/maintainability)](https://codeclimate.com/github/Sammuel09/Fast-Food-Fast/maintainability)  [![Test Coverage](https://api.codeclimate.com/v1/badges/703a7afa68a3951c6ea5/test_coverage)](https://codeclimate.com/github/Sammuel09/Fast-Food-Fast/test_coverage) 
-
-
 
 # Fast-Food-Fast
 Fast-Food-Fast is a food delivery service app that enables user to have sweet yummy foods delivered to their door steps. The views are published on Github at https://sammuel09.github.io/Fast-Food-Fast/index.html
